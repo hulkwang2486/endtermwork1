@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>王皓宇期末成果報告</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #d2ffc9, #dcf3ff, #e0ffe0);
+      color: #000000;
+    }
+
+    header {
+      background-color: #367a3a;
+      color: rgba(255, 255, 255, 0.973);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #35b74b;
+      border-radius: 4px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #016109;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #777;
+    }
+    .page-image {
+       max-width: 100%;
+       height: auto;
+       margin-top: 1rem;
+       border-radius: 8px;
+       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .profile-box {
+       display: flex;
+       flex-wrap: wrap;
+       align-items: center;
+       gap: 2rem;
+    }
+    .profile-image {
+       max-width: 250px;
+       flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>王皓宇期末成果報告</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="navMenu">
+      <a href="#" onclick="showPage('home')">首頁</a>
+      <a href="#" onclick="showPage('product')">成果展示</a>
+      <a href="#" onclick="showPage('learning')">學習過程</a>
+      <a href="#" onclick="showPage('exp')">心得與反思</a>
+    </nav>
+  </header>
+
+  <main>
+      <div id="home" class="page active">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+          <img src="IMG_4329.webp" alt="王皓宇照片" class="page-image" style="max-width: 250px; flex-shrink: 0;" />
+          
+          <div style="flex: 1; min-width: 250px;">
+            <h2>關於我</h2>
+            <br>
+            <p><strong>姓名：</strong>王皓宇</p>
+            <p><strong>學校 / 系所：</strong>南臺科技大學 五專資訊工程系</p>
+            <p><strong>專長：</strong>平面設計</p>
+            <p><strong>興趣：</strong>聽音樂、畫畫、旅遊</p>
+            <p><strong>自我介紹：</strong>在學習設計的同時，我也投入於網頁前端開發，在HTML、CSS、JavaScript 等技術，能夠將設計從畫面延伸到實際互動。
+
+                我的興趣包括聽音樂、畫畫與旅遊，這些日常靈感常常成為我設計上的動力。設計不只是對美的呈現，更是使用者與介面溝通的橋樑；而程式是讓設計實現、產生影響力的重要工具。</p>
+          </div>
+        </div>
+      </div>
+
+    <div id="product" class="page">
+      <h2>成果展示</h2>
+      <p>我們是一個熱愛網頁設計的團隊。</p>
+      <img src="images/about.jpg" alt="成果圖示" class="page-image" />
+    </div>
+
+    <div id="learning" class="page">
+      <h2>學習過程</h2>
+      <p>文字</p>
+      <img src="images/contact.jpg" alt="圖示" class="page-image" />
+    </div>
+    <div id="exp" class="page">
+    <h2>心得與反思</h2>
+    <p>文字</p>
+    <img src="images/contact.jpg" alt="圖示" class="page-image" />
+  </div>
+</main>
+
+  <footer>
+    &copy; 2025 王皓宇的網站 保留所有權利。
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navMenu');
+      nav.classList.toggle('active');
+    }
+
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+
+      document.getElementById(pageId).classList.add('active');
+
+      if (window.innerWidth <= 768) {
+        document.getElementById('navMenu').classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>
